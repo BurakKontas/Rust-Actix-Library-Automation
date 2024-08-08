@@ -1,0 +1,12 @@
+[package]
+name = "infrastructure"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+diesel = { version = "2.2.0", features = ["sqlite", "r2d2"] }
+dotenvy = "0.15"
+async-trait = "0.1"  # veya en son sürümü
+sqlx = { version = "0.8", features = ["sqlite", "runtime-async-std"] }
+chrono = { version = "0.4", features = ["serde"] }
+domain = { path = "../domain" }

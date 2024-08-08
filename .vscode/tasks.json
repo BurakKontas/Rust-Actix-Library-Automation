@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "cargo build",
+            "type": "process",
+            "command": "cargo",
+            "args": [
+                "build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$rustc"],
+            "presentation": {
+                "reveal": "never",
+                "panel": "shared"
+            }
+        }
+    ]
+}

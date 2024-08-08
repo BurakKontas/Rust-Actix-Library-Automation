@@ -1,0 +1,9 @@
+[package]
+name = "domain"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+diesel = { version = "2.2.0", features = ["sqlite"] }
+async-trait = "0.1"  # veya en son sürümü
+serde = { version = "1.0", features = ["derive"] }
