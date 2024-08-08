@@ -7,28 +7,42 @@ The project is organized as follows:
 ### General Structure
 
 ```
-library/
-├── src/
-│ ├── api/
-│ │ ├── controllers/
-│ │ │ ├── member_controller.rs # API endpoints for member operations
-│ │ │ ├── book_controller.rs # API endpoints for book operations
-│ │ │ ├── library_controller.rs # API endpoints for library operations
-│ │ │ └── mod.rs # Entry point for the API module
-│ ├── infrastructure/
-│ │ ├── repositories/
-│ │ │ ├── member_repository.rs # Repository for managing member data
-│ │ │ ├── book_repository.rs # Repository for managing book data
-│ │ │ ├── library_repository.rs # Repository for managing library data
-│ │ │ └── mod.rs # Entry point for the Infrastructure module
-│ ├── domain/
-│ │ ├── models/ # Database models and other business logic files
-│ │ ├── schema/ # Diesel schema files
-│ │ └── traits/ # Repository traits
-│ ├── main.rs # Application startup and configuration file
-│ └── lib.rs # General configurations used throughout the project
-├── Cargo.toml # Rust project dependencies and configuration
-└── README.md # Project description and usage information
+LibraryAutomation/
+│
+├── api/
+│ └── src/
+│ ├── lib.rs
+│ ├── controllers/
+│ │ ├── book_controller.rs
+│ │ ├── library_controller.rs
+│ │ ├── member_controller.rs
+│ │ └── mod.rs
+│ └── main.rs
+│
+├── domain/
+│ └── src/
+│ ├── lib.rs
+│ ├── schema.rs
+│ ├── models/
+│ │ ├── mod.rs
+│ │ ├── book/
+│ │ │ └── mod.rs
+│ │ ├── library/
+│ │ │ └── mod.rs
+│ │ └── member/
+│ │ └── mod.rs
+│ └── traits/
+│ └── mod.rs
+│
+└── infrastructure/
+└── src/
+├── lib.rs
+├── repositories/
+│ ├── book_repository.rs
+│ ├── library_repository.rs
+│ ├── member_repository.rs
+│ └── mod.rs
+└── main.rs
 ```
 
 ### API Endpoints
@@ -57,6 +71,30 @@ Database operations are managed by repository files located under `src/infrastru
 - **Library Repository**: `src/infrastructure/repositories/library_repository.rs`
   - Manages library data and interactions, including book borrowing and returns.
 
-### Postman Collection
+## Postman Collection
 
-A Postman collection is provided for testing the API. This collection includes pre-configured requests to test various API endpoints. You can find the Postman collection in the `postman_collection.json` file.
+The Postman collection for this project is available. It includes examples for interacting with the API endpoints. Import this collection into Postman to test the API functionality.
+
+## Running the Project
+
+To run the project, navigate to the project root and use Cargo commands as usual for Rust projects.
+
+## Directory and File Overview
+
+- **`api/src`**: Contains the API layer, including controllers and the main entry point.
+  - `controllers/`: Manages HTTP request handling for books, libraries, and members.
+  - `lib.rs`: Main library file for API configuration.
+  - `main.rs`: Entry point of the application.
+
+- **`domain/src`**: Contains domain models and schema definitions.
+  - `models/`: Defines the core data structures for books, libraries, and members.
+  - `schema.rs`: Database schema definitions.
+  - `lib.rs`: Main library file for domain logic.
+  - `traits/`: Defines traits used across the domain layer.
+
+- **`infrastructure/src`**: Contains the infrastructure layer, including repositories.
+  - `repositories/`: Manages data access logic for books, libraries, and members.
+  - `lib.rs`: Main library file for infrastructure configuration.
+  - `main.rs`: Entry point for infrastructure setup.
+
+This structure maintains a clean separation of concerns, making the codebase modular and easier to manage.
